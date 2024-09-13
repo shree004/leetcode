@@ -8,13 +8,14 @@ class Solution {
         Iterator<Integer> it=set.iterator();
         while(it.hasNext()){
             int x=it.next();
-            int count=1;
-            if(set.contains(x-1)) continue;
-            while(set.contains(x+1)){
-                count++;
-                x++;
+            if(!set.contains(x-1)){
+                int count=1;
+                while(set.contains(x+1)){
+                    count++;
+                    x++;
+                }
+                max=Math.max(max,count);
             }
-            max=Math.max(max,count);
         }
         return max;
     }
