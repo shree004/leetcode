@@ -12,8 +12,6 @@ class Solution {
             Map.Entry<String,Integer> entry=it.next();
             if(entry.getValue()==1) arr.add(entry.getKey());
         }
-        String[] ans=new String[arr.size()];
-        ans=arr.toArray(ans);
-        return ans;
+        return arr.toArray(new String[0]);
     }
 }
