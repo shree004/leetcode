@@ -5,16 +5,18 @@ class Solution {
         helper(candidates,0,target,new ArrayList(),arr);
         return arr;
     }
-    public void helper(int[]candidates,int index,int sum, List<Integer> list,List<List<Integer>> arr){
-        if(sum<=0 || index>=candidates.length){
-                if(sum==0) arr.add(new ArrayList<>(list));
-                return;
+    public void helper(int[] nums,int index, int sum,List<Integer> list,List<List<Integer>> arr){
+        if(sum<=0){
+            if(sum==0){
+                arr.add(new ArrayList<>(list));
+            }
+            return;
         }
-        for(int i=index;i<candidates.length;i++){
-            if(i>index && candidates[i]==candidates[i-1]) continue;
-            if(candidates[i]>sum) break;
-            list.add(candidates[i]);
-            helper(candidates,i+1,sum-candidates[i],list,arr);
+        for(int i=index;i<nums.length;i++){
+            if(i>index && nums[i]==nums[i-1]) continue;
+            if(nums[i]>sum) break;
+            list.add(nums[i]);
+            helper(nums,i+1,sum-nums[i],list,arr);
             list.remove(list.size()-1);
         }
     }
