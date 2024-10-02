@@ -22,10 +22,8 @@ class Solution {
     }
     public int sum(TreeNode root,int[] sum){
         if(root==null) return 0;
-        int left=sum(root.left,sum);
-        int right=sum(root.right,sum);
-        if(left<0) left=0;
-        if(right<0)right=0;
+        int left=Math.max(0,sum(root.left,sum));
+        int right=Math.max(0,sum(root.right,sum));
         sum[0]=Math.max(left+right+root.val,sum[0]);
         return Math.max(root.val+left,root.val+right);
     }
