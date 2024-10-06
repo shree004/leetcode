@@ -1,7 +1,7 @@
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
         if(strs.length==0) return new ArrayList();
-        HashMap<String,List> map=new HashMap<>();
+        HashMap<String,List<String>> map=new HashMap<>();
         int arr[]=new int[26];
         for(String s:strs){
             Arrays.fill(arr,0);
